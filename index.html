@@ -1,102 +1,11 @@
-<!DOCTYPE html>
-<html lang="en" class="dark scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WINTERMUTE | Algorithmic Liquidity Provider & Market Maker</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        wm: {
-                            bg: '#0a0d0e',
-                            panel: '#121618',
-                            card: '#161b1e',
-                            green: '#00ff66',
-                            greenHover: '#00e55b',
-                            greenLight: '#20e070',
-                            textMuted: '#8a99a6',
-                            border: 'rgba(255, 255, 255, 0.08)'
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Space Grotesk', 'Inter', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace']
-                    }
-                }
-            }
-        }
-    </script>
-    <!-- Google Fonts & FontAwesome -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        body {
-            font-family: 'Space Grotesk', sans-serif;
-            background-color: #0a0d0e;
-            color: #ffffff;
-            overflow-x: hidden;
-        }
-
-        .wm-green-glow {
-            box-shadow: 0 0 25px rgba(0, 255, 102, 0.25);
-        }
-
-        .wm-border-glow:hover {
-            border-color: #00ff66;
-            box-shadow: 0 0 15px rgba(0, 255, 102, 0.2);
-        }
-
-        .text-green-gradient {
-            background: linear-gradient(135deg, #ffffff 30%, #00ff66 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 6px;
-            height: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0a0d0e;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #1c2428;
-            border-radius: 3px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #00ff66;
-        }
-
-        /* Accordion transition */
-        .accordion-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-        }
-    </style>
-</head>
-<body class="relative min-h-screen selection:bg-wm-green selection:text-black">
-
-    <!-- CANVAS GRAPHIC BACKGROUND -->
-    <canvas id="wm-canvas" class="fixed top-0 left-0 w-full h-full pointer-events-none z-0 opacity-40"></canvas>
-
-    <!-- NAVIGATION HEADER -->
-    <header class="fixed top-0 left-0 w-full z-50 bg-wm-bg/90 backdrop-blur-md border-b border-wm-border transition-all">
+```html
+<!-- ... existing code ... -->
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <!-- Wintermute Logo -->
                 <a href="#hero" onclick="showPage('hero')" class="flex items-center space-x-3 group">
                     <svg class="w-8 h-8 text-wm-green group-hover:scale-110 transition-transform" viewBox="0 0 100 100" fill="currentColor">
-                        <polygon points="50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5" fill="none" stroke="currentColor" stroke-width="8"/>
+                        <polygon points="50,5 95,27.5 95,72.5 50,95 5,27.5 5,27.5" fill="none" stroke="currentColor" stroke-width="8"/>
                         <polygon points="50,20 80,35 80,65 50,80 20,65 20,35" fill="currentColor"/>
                     </svg>
                     <span class="text-2xl font-bold tracking-widest font-mono text-white">WINTERMUTE</span>
@@ -109,17 +18,15 @@
                     <button onclick="showPage('construct')" class="text-gray-300 hover:text-wm-green transition-colors uppercase">Construct</button>
                     <button onclick="showPage('careers')" class="text-gray-300 hover:text-wm-green transition-colors uppercase">Careers</button>
                     <button onclick="showPage('contact')" class="text-gray-300 hover:text-wm-green transition-colors uppercase">Contact</button>
+                    <a href="https://wa.me/qr/RC5TX6UFKW3CG1?s=v" target="_blank" class="text-wm-green hover:text-wm-greenHover transition-colors flex items-center space-x-2">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>WHATSAPP</span>
+                    </a>
                 </nav>
 
                 <!-- Mobile Menu Button -->
                 <div class="flex lg:hidden items-center space-x-4">
-                    <button id="menu-toggle-btn" class="w-12 h-12 rounded-lg bg-wm-green text-black flex items-center justify-center font-bold text-xl">
-                        <i id="menu-icon" class="fa-solid fa-bars"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-
+<!-- ... existing code ... -->
         <!-- Mobile Full Screen Navigation Overlay -->
         <div id="mobile-nav" class="hidden lg:hidden bg-wm-bg border-b border-wm-border px-6 py-8 space-y-6 text-xl font-mono tracking-wider">
             <button onclick="showPage('hero')" class="block w-full text-left text-wm-green hover:underline">01. HOME</button>
@@ -128,132 +35,13 @@
             <button onclick="showPage('construct')" class="block w-full text-left text-gray-200 hover:text-wm-green">04. CONSTRUCT</button>
             <button onclick="showPage('careers')" class="block w-full text-left text-gray-200 hover:text-wm-green">05. CAREERS</button>
             <button onclick="showPage('contact')" class="block w-full text-left text-gray-200 hover:text-wm-green">06. CONTACT</button>
+            <a href="https://wa.me/qr/RC5TX6UFKW3CG1?s=v" target="_blank" class="block w-full text-left text-wm-green flex items-center space-x-2">
+                <i class="fa-brands fa-whatsapp"></i>
+                <span>WHATSAPP SUPPORT</span>
+            </a>
         </div>
     </header>
-
-    <!-- MAIN PAGE CONTAINER -->
-    <main class="relative z-10 pt-20">
-
-        <!-- ================= PAGE 1: HERO / LANDING ================= -->
-        <div id="page-hero" class="page-view">
-            <!-- Hero Banner -->
-            <section class="min-h-[85vh] flex items-center justify-center py-20 px-4 text-center">
-                <div class="max-w-5xl mx-auto">
-                    <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-wm-panel border border-wm-green/30 text-xs font-mono text-wm-green mb-8">
-                        <span class="w-2 h-2 rounded-full bg-wm-green animate-ping"></span>
-                        <span>LEADING ALGORITHMIC LIQUIDITY PROVIDER</span>
-                    </div>
-
-                    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight mb-8 leading-tight">
-                        Powering Global <br />
-                        <span class="text-wm-green">Digital Asset Markets</span>
-                    </h1>
-
-                    <p class="text-lg sm:text-2xl text-wm-textMuted max-w-3xl mx-auto mb-12 font-light">
-                        Wintermute creates liquid, efficient, and transparent markets across 60+ centralized and decentralized crypto trading venues worldwide.
-                    </p>
-
-                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
-                        <button onclick="showPage('liquidity')" class="w-full sm:w-auto px-8 py-4 rounded-lg text-base font-bold bg-wm-green text-black hover:bg-wm-greenHover transition-all flex items-center justify-center space-x-3">
-                            <span>EXPLORE LIQUIDITY</span>
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </button>
-                        <button onclick="openOtcModal()" class="w-full sm:w-auto px-8 py-4 rounded-lg text-base font-bold bg-wm-panel text-white hover:bg-wm-card border border-wm-border transition-all flex items-center justify-center space-x-3">
-                            <i class="fa-solid fa-terminal text-wm-green"></i>
-                            <span>INSTITUTIONAL OTC</span>
-                        </button>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Live Market Marquee -->
-            <section class="py-6 bg-wm-panel border-y border-wm-border overflow-hidden">
-                <div class="max-w-7xl mx-auto px-4 flex items-center space-x-8 font-mono text-xs text-gray-400">
-                    <div class="flex items-center space-x-2 text-wm-green font-bold flex-shrink-0">
-                        <i class="fa-solid fa-satellite-dish animate-pulse"></i>
-                        <span>SYSTEM STATUS: NORMAL</span>
-                    </div>
-                    <div class="flex space-x-12 overflow-x-auto whitespace-nowrap scrollbar-none py-1">
-                        <span>BTC/USD: <strong class="text-white">$98,420.50</strong> <span class="text-wm-green">+2.4%</span></span>
-                        <span>ETH/USDT: <strong class="text-white">$3,510.80</strong> <span class="text-wm-green">+1.8%</span></span>
-                        <span>SOL/USDC: <strong class="text-white">$214.30</strong> <span class="text-rose-400">-0.5%</span></span>
-                        <span>AVAX/USD: <strong class="text-white">$42.15</strong> <span class="text-wm-green">+4.1%</span></span>
-                        <span>CEX/DEX ROUTING LATENCY: <strong class="text-wm-green">&lt;0.8ms</strong></span>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Quick Overview Grid -->
-            <section class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div onclick="showPage('company')" class="bg-wm-panel p-8 rounded-2xl border border-wm-border hover:border-wm-green transition-all cursor-pointer">
-                        <div class="text-wm-green text-3xl mb-4"><i class="fa-solid fa-building"></i></div>
-                        <h3 class="text-2xl font-bold mb-3">Company</h3>
-                        <p class="text-wm-textMuted text-sm leading-relaxed mb-6">Founded in 2017, Wintermute is a top-tier global market maker and proprietary trading firm.</p>
-                        <span class="text-xs font-mono text-wm-green flex items-center">READ MORE <i class="fa-solid fa-arrow-right ml-2"></i></span>
-                    </div>
-
-                    <div onclick="showPage('liquidity')" class="bg-wm-panel p-8 rounded-2xl border border-wm-border hover:border-wm-green transition-all cursor-pointer">
-                        <div class="text-wm-green text-3xl mb-4"><i class="fa-solid fa-chart-line"></i></div>
-                        <h3 class="text-2xl font-bold mb-3">Liquidity Provision</h3>
-                        <p class="text-wm-textMuted text-sm leading-relaxed mb-6">Continuous algorithmic order book liquidity for 110+ leading token project issuers.</p>
-                        <span class="text-xs font-mono text-wm-green flex items-center">EXPLORE SERVICES <i class="fa-solid fa-arrow-right ml-2"></i></span>
-                    </div>
-
-                    <div onclick="showPage('construct')" class="bg-wm-panel p-8 rounded-2xl border border-wm-border hover:border-wm-green transition-all cursor-pointer">
-                        <div class="text-wm-green text-3xl mb-4"><i class="fa-solid fa-cube"></i></div>
-                        <h3 class="text-2xl font-bold mb-3">Construct & Ventures</h3>
-                        <p class="text-wm-textMuted text-sm leading-relaxed mb-6">Empowering early-stage Web3 builders with $300K guaranteed seed investment and mentorship.</p>
-                        <span class="text-xs font-mono text-wm-green flex items-center">VIEW PROGRAM <i class="fa-solid fa-arrow-right ml-2"></i></span>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <!-- ================= PAGE 2: COMPANY PAGE ================= -->
-        <div id="page-company" class="page-view hidden">
-            <!-- Hero -->
-            <section class="py-20 px-4 max-w-7xl mx-auto">
-                <div class="max-w-4xl">
-                    <h2 class="text-xs font-mono text-wm-green uppercase tracking-widest mb-4">ABOUT WINTERMUTE</h2>
-                    <h1 class="text-4xl sm:text-6xl font-extrabold mb-8">Building the future of decentralized finance</h1>
-                    <p class="text-xl text-wm-textMuted leading-relaxed">
-                        Founded in 2017, Wintermute has grown into a diversified powerhouse in the digital asset space, with a global presence across its London, New York, and Singapore offices.
-                    </p>
-                </div>
-            </section>
-
-            <!-- Business Lines Cards -->
-            <section class="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h3 class="text-2xl font-bold mb-8 border-b border-wm-border pb-4">Core Business Operations</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div class="bg-wm-panel p-6 rounded-xl border border-wm-border">
-                        <h4 class="text-xl font-bold text-wm-green mb-3">Algorithmic Trading</h4>
-                        <p class="text-sm text-wm-textMuted leading-relaxed">We apply proprietary high-frequency algorithms and quantitative strategies across all major trading venues in CeFi, DeFi, and TradFi.</p>
-                    </div>
-
-                    <div class="bg-wm-panel p-6 rounded-xl border border-wm-border">
-                        <h4 class="text-xl font-bold text-wm-green mb-3">OTC Liquidity Provision</h4>
-                        <p class="text-sm text-wm-textMuted leading-relaxed">We provide spot and derivative OTC products to counterparties ranging from global financial institutions to crypto-native firms.</p>
-                    </div>
-
-                    <div class="bg-wm-panel p-6 rounded-xl border border-wm-border">
-                        <h4 class="text-xl font-bold text-wm-green mb-3">Venture Investment</h4>
-                        <p class="text-sm text-wm-textMuted leading-relaxed">We invest in emerging DeFi protocols and strategically support them in shaping the future of the crypto industry.</p>
-                    </div>
-
-                    <div class="bg-wm-panel p-6 rounded-xl border border-wm-border">
-                        <h4 class="text-xl font-bold text-wm-green mb-3">Liquidity Provision</h4>
-                        <p class="text-sm text-wm-textMuted leading-relaxed">We provide liquidity for innovative blockchain projects, supporting both listed and pre-listed tokens seamlessly.</p>
-                    </div>
-
-                    <div class="bg-wm-panel p-6 rounded-xl border border-wm-border">
-                        <h4 class="text-xl font-bold text-wm-green mb-3">Incubation</h4>
-                        <p class="text-sm text-wm-textMuted leading-relaxed">We build and incubate companies and protocols that we believe the digital asset industry needs to advance.</p>
-                    </div>
-                </div>
-            </section>
-
+<!-- ... existing code ... -->
             <!-- Executive Leadership Carousel Slider (1/9) -->
             <section class="py-20 bg-wm-panel border-y border-wm-border">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -263,7 +51,7 @@
                             <h3 class="text-3xl font-bold">Meet the Executive Team</h3>
                         </div>
                         <div class="flex items-center space-x-4">
-                            <span id="exec-slide-counter" class="font-mono text-sm text-gray-400">1 / 9</span>
+                            <span id="exec-slide-counter" class="font-mono text-sm text-gray-400">1 / 10</span>
                             <button onclick="prevExecSlide()" class="w-10 h-10 rounded-lg bg-wm-card border border-wm-border flex items-center justify-center text-white hover:text-wm-green">
                                 <i class="fa-solid fa-chevron-left"></i>
                             </button>
@@ -275,9 +63,10 @@
 
                     <!-- Slide Display -->
                     <div class="max-w-xl mx-auto bg-wm-card rounded-2xl overflow-hidden border border-wm-border">
-                        <div class="h-80 bg-gray-800 relative flex items-center justify-center overflow-hidden">
+                        <div id="exec-media-container" class="h-80 bg-gray-800 relative flex items-center justify-center overflow-hidden">
                             <img id="exec-img" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80" alt="Executive" class="w-full h-full object-cover">
-                            <div class="absolute inset-0 bg-gradient-to-t from-wm-card via-transparent to-transparent"></div>
+                            <video id="exec-video" class="w-full h-full object-cover hidden" controls loop muted playsinline></video>
+                            <div class="absolute inset-0 bg-gradient-to-t from-wm-card via-transparent to-transparent pointer-events-none"></div>
                         </div>
                         <div class="p-8 text-center">
                             <h4 id="exec-name" class="text-2xl font-bold text-white mb-1">Evgeny Gaevoy</h4>
@@ -288,173 +77,7 @@
                 </div>
             </section>
         </div>
-
-        <!-- ================= PAGE 3: LIQUIDITY PAGE ================= -->
-        <div id="page-liquidity" class="page-view hidden">
-            <!-- Liquidity Hero -->
-            <section class="py-20 px-4 max-w-7xl mx-auto text-center">
-                <h1 class="text-4xl sm:text-6xl font-extrabold mb-6">Building deep, scalable liquidity for your token</h1>
-                <p class="text-xl text-wm-textMuted max-w-3xl mx-auto mb-12">
-                    Partner with a market maker trusted by leading token issuers globally across CeFi and DeFi.
-                </p>
-            </section>
-
-            <!-- Metrics Counters -->
-            <section class="py-12 bg-wm-panel border-y border-wm-border">
-                <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-5 gap-6 text-center font-mono">
-                    <div class="p-4">
-                        <div class="text-3xl font-extrabold text-wm-green mb-1">$1T+</div>
-                        <div class="text-xs text-wm-textMuted uppercase">CUMULATIVE LIQUIDITY</div>
-                    </div>
-                    <div class="p-4">
-                        <div class="text-3xl font-extrabold text-wm-green mb-1">110</div>
-                        <div class="text-xs text-wm-textMuted uppercase">TOKEN PARTNERS</div>
-                    </div>
-                    <div class="p-4">
-                        <div class="text-3xl font-extrabold text-wm-green mb-1">25</div>
-                        <div class="text-xs text-wm-textMuted uppercase">CEFI EXCHANGES</div>
-                    </div>
-                    <div class="p-4">
-                        <div class="text-3xl font-extrabold text-wm-green mb-1">45</div>
-                        <div class="text-xs text-wm-textMuted uppercase">DEFI VENUES</div>
-                    </div>
-                    <div class="p-4 col-span-2 md:col-span-1">
-                        <div class="text-3xl font-extrabold text-wm-green mb-1">7</div>
-                        <div class="text-xs text-wm-textMuted uppercase">DAOS DELEGATES</div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Partner Testimonials Carousel Slider (1/3) -->
-            <section class="py-24 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-12">
-                    <h2 class="text-xs font-mono text-wm-green uppercase tracking-widest mb-2">TESTIMONIALS</h2>
-                    <h3 class="text-3xl font-bold">Trusted by Web3 Founders</h3>
-                </div>
-
-                <div class="bg-wm-panel p-8 sm:p-12 rounded-2xl border border-wm-border text-center relative">
-                    <div class="text-wm-green text-4xl mb-6"><i class="fa-solid fa-quote-left"></i></div>
-                    <p id="testimonial-quote" class="text-lg sm:text-xl text-gray-200 leading-relaxed mb-8 italic">
-                        "Wintermute has been an invaluable partner for Douro Labs in contributing to the Pyth Network. Their team consistently exceeds expectations, and their deep DeFi expertise makes them our clear choice."
-                    </p>
-                    <h4 id="testimonial-author" class="text-lg font-bold text-white">HEAD OF BUSINESS DEVELOPMENT</h4>
-                    <p id="testimonial-org" class="text-xs font-mono text-wm-green">DOURO LABS (PYTH NETWORK)</p>
-
-                    <div class="flex items-center justify-center space-x-6 mt-8 pt-6 border-t border-wm-border">
-                        <span id="testimonial-counter" class="font-mono text-xs text-gray-400">1 / 3</span>
-                        <div class="flex space-x-2">
-                            <button onclick="prevTestimonial()" class="w-8 h-8 rounded bg-wm-card border border-wm-border text-white hover:text-wm-green"><i class="fa-solid fa-chevron-left text-xs"></i></button>
-                            <button onclick="nextTestimonial()" class="w-8 h-8 rounded bg-wm-card border border-wm-border text-white hover:text-wm-green"><i class="fa-solid fa-chevron-right text-xs"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <!-- ================= PAGE 4: CONSTRUCT / ACCELERATOR ================= -->
-        <div id="page-construct" class="page-view hidden">
-            <section class="py-20 px-4 max-w-7xl mx-auto text-center">
-                <div class="inline-block px-4 py-2 bg-rose-500/10 border border-rose-500/30 text-rose-400 rounded-full font-mono text-xs mb-6">APPLICATIONS CLOSED</div>
-                <h1 class="text-4xl sm:text-6xl font-extrabold mb-6">WINTERMUTE CONSTRUCT</h1>
-                <p class="text-xl text-wm-textMuted max-w-3xl mx-auto">
-                    Accelerating early-stage Web3 founders building the infrastructure of the machine economy.
-                </p>
-            </section>
-
-            <!-- Stats Bar -->
-            <section class="py-12 bg-wm-panel border-y border-wm-border">
-                <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 text-center font-mono">
-                    <div>
-                        <div class="text-2xl font-bold text-wm-green">$300K</div>
-                        <div class="text-xs text-wm-textMuted mt-1">GUARANTEED INVESTMENT</div>
-                    </div>
-                    <div>
-                        <div class="text-2xl font-bold text-wm-green">8</div>
-                        <div class="text-xs text-wm-textMuted mt-1">STARTUPS IN COHORT</div>
-                    </div>
-                    <div>
-                        <div class="text-2xl font-bold text-wm-green">15+</div>
-                        <div class="text-xs text-wm-textMuted mt-1">INDUSTRY MENTORS</div>
-                    </div>
-                    <div>
-                        <div class="text-2xl font-bold text-wm-green">$100K</div>
-                        <div class="text-xs text-wm-textMuted mt-1">PARTNER PERKS & CREDITS</div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- FAQ Accordion -->
-            <section class="py-20 max-w-4xl mx-auto px-4">
-                <h3 class="text-2xl font-bold mb-8 text-center">Frequently Asked Questions</h3>
-                <div class="space-y-4">
-                    <div class="bg-wm-panel rounded-xl border border-wm-border p-6">
-                        <button onclick="toggleFaq(1)" class="w-full flex justify-between items-center text-left font-bold text-lg">
-                            <span>Who should apply for Wintermute Construct?</span>
-                            <i id="faq-icon-1" class="fa-solid fa-plus text-wm-green"></i>
-                        </button>
-                        <div id="faq-ans-1" class="accordion-content text-sm text-wm-textMuted mt-4 leading-relaxed">
-                            Construct is designed for ambitious early-stage Web3 founders, protocols, and developers creating decentralized infrastructure, liquidity systems, and trading technology.
-                        </div>
-                    </div>
-
-                    <div class="bg-wm-panel rounded-xl border border-wm-border p-6">
-                        <button onclick="toggleFaq(2)" class="w-full flex justify-between items-center text-left font-bold text-lg">
-                            <span>What does each startup receive?</span>
-                            <i id="faq-icon-2" class="fa-solid fa-plus text-wm-green"></i>
-                        </button>
-                        <div id="faq-ans-2" class="accordion-content text-sm text-wm-textMuted mt-4 leading-relaxed">
-                            Each accepted team receives $300,000 in guaranteed seed funding, direct access to Wintermute's engineering and trading teams, and demo days in London and NYC.
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <!-- ================= PAGE 5: CAREERS PAGE ================= -->
-        <div id="page-careers" class="page-view hidden">
-            <section class="py-20 px-4 max-w-7xl mx-auto text-center">
-                <h1 class="text-4xl sm:text-6xl font-extrabold mb-6">Join the Wintermute Team</h1>
-                <p class="text-xl text-wm-textMuted max-w-3xl mx-auto mb-8">
-                    Search open roles across London, New York, Singapore, and remote locations.
-                </p>
-            </section>
-
-            <!-- Interactive Job Board -->
-            <section class="py-12 max-w-5xl mx-auto px-4">
-                <div class="space-y-4">
-                    <!-- Job Item 1 -->
-                    <div class="bg-wm-panel p-6 rounded-xl border border-wm-border flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-                        <div>
-                            <span class="text-xs font-mono text-wm-green uppercase">TRADING</span>
-                            <h4 class="text-xl font-bold text-white mt-1">Algorithmic Trader</h4>
-                            <p class="text-xs text-wm-textMuted mt-1">ONSITE / FULL-TIME / LONDON / NEW YORK</p>
-                        </div>
-                        <button onclick="alert('Application link opened!')" class="px-5 py-2.5 rounded bg-wm-green text-black font-bold text-xs uppercase hover:bg-wm-greenHover">Apply Now</button>
-                    </div>
-
-                    <!-- Job Item 2 -->
-                    <div class="bg-wm-panel p-6 rounded-xl border border-wm-border flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-                        <div>
-                            <span class="text-xs font-mono text-wm-green uppercase">TECHNOLOGY</span>
-                            <h4 class="text-xl font-bold text-white mt-1">C++ Quant Developer</h4>
-                            <p class="text-xs text-wm-textMuted mt-1">HYBRID / FULL-TIME / LONDON</p>
-                        </div>
-                        <button onclick="alert('Application link opened!')" class="px-5 py-2.5 rounded bg-wm-green text-black font-bold text-xs uppercase hover:bg-wm-greenHover">Apply Now</button>
-                    </div>
-
-                    <!-- Job Item 3 -->
-                    <div class="bg-wm-panel p-6 rounded-xl border border-wm-border flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-                        <div>
-                            <span class="text-xs font-mono text-wm-green uppercase">PRODUCT</span>
-                            <h4 class="text-xl font-bold text-white mt-1">Full Stack Engineer</h4>
-                            <p class="text-xs text-wm-textMuted mt-1">HYBRID / FULL-TIME / LONDON</p>
-                        </div>
-                        <button onclick="alert('Application link opened!')" class="px-5 py-2.5 rounded bg-wm-green text-black font-bold text-xs uppercase hover:bg-wm-greenHover">Apply Now</button>
-                    </div>
-                </div>
-            </section>
-        </div>
-
+<!-- ... existing code ... -->
         <!-- ================= PAGE 6: CONTACT PAGE ================= -->
         <div id="page-contact" class="page-view hidden">
             <section class="py-20 px-4 max-w-4xl mx-auto text-center">
@@ -462,6 +85,11 @@
                 <p class="text-wm-textMuted mb-12">Select your topic to connect with the appropriate team.</p>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
+                    <a href="https://wa.me/qr/RC5TX6UFKW3CG1?s=v" target="_blank" class="bg-wm-panel p-6 rounded-xl border border-wm-border hover:border-wm-green cursor-pointer flex justify-between items-center text-wm-green">
+                        <span class="font-bold flex items-center gap-2"><i class="fa-brands fa-whatsapp text-xl"></i> Instant WhatsApp Direct</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
                     <div onclick="openContactForm('OTC Trading')" class="bg-wm-panel p-6 rounded-xl border border-wm-border hover:border-wm-green cursor-pointer flex justify-between items-center">
                         <span class="font-bold">OTC Trading</span>
                         <i class="fa-solid fa-arrow-right text-wm-green"></i>
@@ -486,6 +114,11 @@
         </div>
     </main>
 
+    <!-- FLOATING WHATSAPP BUTTON -->
+    <a href="https://wa.me/qr/RC5TX6UFKW3CG1?s=v" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300 wm-green-glow" title="Chat on WhatsApp">
+        <i class="fa-brands fa-whatsapp text-3xl"></i>
+    </a>
+
     <!-- FOOTER -->
     <footer class="relative z-10 bg-wm-bg border-t border-wm-border py-12 text-xs text-wm-textMuted">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -493,11 +126,13 @@
                 <div class="flex items-center space-x-3">
                     <svg class="w-6 h-6 text-wm-green" viewBox="0 0 100 100" fill="currentColor">
                         <polygon points="50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5" fill="none" stroke="currentColor" stroke-width="8"/>
+                        <polygon points="50,20 80,35 80,65 50,80 20,65 20,35" fill="currentColor"/>
                     </svg>
                     <span class="text-xl font-bold font-mono text-white">WINTERMUTE</span>
                 </div>
 
                 <div class="flex space-x-6 text-base">
+                    <a href="https://wa.me/qr/RC5TX6UFKW3CG1?s=v" target="_blank" class="hover:text-wm-green text-wm-green"><i class="fa-brands fa-whatsapp"></i></a>
                     <a href="#" class="hover:text-wm-green"><i class="fa-brands fa-x-twitter"></i></a>
                     <a href="#" class="hover:text-wm-green"><i class="fa-brands fa-linkedin"></i></a>
                     <a href="#" class="hover:text-wm-green"><i class="fa-brands fa-telegram"></i></a>
@@ -505,46 +140,19 @@
             </div>
 
             <p class="text-justify leading-relaxed text-gray-500">
-                Wintermute Trading Ltd is registered in England &amp; Wales (Company No. 10882520) and registered with the UK Financial Conduct Authority (FCA). Wintermute operates strictly as a proprietary liquidity provider and does not offer services to retail clients.
-            </p>
-            <p class="mt-6 text-center text-gray-600 font-mono">&copy; <span id="current-year"></span> WINTERMUTE. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <!-- INTERACTIVE SCRIPT -->
-    <script>
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-
-        // Page Router Function
-        function showPage(pageId) {
-            document.querySelectorAll('.page-view').forEach(el => el.classList.add('hidden'));
-            const target = document.getElementById('page-' + pageId);
-            if (target) {
-                target.classList.remove('hidden');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
-            // Close mobile menu if open
-            document.getElementById('mobile-nav').classList.add('hidden');
-        }
-
-        // Mobile Nav Drawer Toggle
-        const menuBtn = document.getElementById('menu-toggle-btn');
-        const mobileNav = document.getElementById('mobile-nav');
-        menuBtn.addEventListener('click', () => {
-            mobileNav.classList.toggle('hidden');
-        });
-
-        // Executive Team Carousel Data
+<!-- ... existing code ... -->
+        // Executive Team Carousel Data with Video Support & Slide Show
         const execs = [
-            { name: "Evgeny Gaevoy", role: "FOUNDER & CEO", bio: "Former Head of ETF Market Making at Optiver with over 15 years of quantitative trading experience.", img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80" },
-            { name: "Marina Gurevich", role: "CHIEF OPERATING OFFICER", bio: "Oversees global operations, strategic scaling, and cross-office operational expansion.", img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" },
-            { name: "Valentine Samko", role: "CHIEF TECHNOLOGY OFFICER", bio: "Formerly built low-latency high-frequency trading architecture at XTX Markets. Holds a PhD in Math.", img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80" },
-            { name: "Morgan Vincent", role: "HEAD OF TRADING", bio: "Manages market-making algorithms and risk exposure across 60+ global trading venues.", img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80" },
-            { name: "Yoann Turpin", role: "CO-FOUNDER", bio: "Former high-frequency trader with extensive experience in early-stage Web3 project incubation.", img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=800&q=80" },
-            { name: "Jonathan Chan", role: "GLOBAL HEAD OF BUSINESS DEVELOPMENT", bio: "Leads exchange relations, token project onboarding, and institutional partner relationships.", img: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=800&q=80" },
-            { name: "Alain Passini", role: "HEAD OF RISK", bio: "Directs automated multi-asset quantitative risk parameters and execution monitoring systems.", img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=800&q=80" },
-            { name: "Lilian Tan", role: "CHIEF COMPLIANCE OFFICER", bio: "Ensures legal and regulatory compliance across UK, US, and Asian financial jurisdictions.", img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=800&q=80" },
-            { name: "Nalaka Gamage", role: "CHIEF FINANCIAL OFFICER", bio: "Directs global corporate finance, capital allocation, and treasury risk management.", img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80" }
+            { type: "video", name: "Management Overview", role: "CORPORATE OVERVIEW & CASSEROLE VIDEO", bio: "An inside look into Wintermute's executive culture, management strategy, and global operation centers.", src: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" },
+            { type: "image", name: "Evgeny Gaevoy", role: "FOUNDER & CEO", bio: "Former Head of ETF Market Making at Optiver with over 15 years of quantitative trading experience.", img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80" },
+            { type: "image", name: "Marina Gurevich", role: "CHIEF OPERATING OFFICER", bio: "Oversees global operations, strategic scaling, and cross-office operational expansion.", img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" },
+            { type: "image", name: "Valentine Samko", role: "CHIEF TECHNOLOGY OFFICER", bio: "Formerly built low-latency high-frequency trading architecture at XTX Markets. Holds a PhD in Math.", img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80" },
+            { type: "image", name: "Morgan Vincent", role: "HEAD OF TRADING", bio: "Manages market-making algorithms and risk exposure across 60+ global trading venues.", img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80" },
+            { type: "image", name: "Yoann Turpin", role: "CO-FOUNDER", bio: "Former high-frequency trader with extensive experience in early-stage Web3 project incubation.", img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=800&q=80" },
+            { type: "image", name: "Jonathan Chan", role: "GLOBAL HEAD OF BUSINESS DEVELOPMENT", bio: "Leads exchange relations, token project onboarding, and institutional partner relationships.", img: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=800&q=80" },
+            { type: "image", name: "Alain Passini", role: "HEAD OF RISK", bio: "Directs automated multi-asset quantitative risk parameters and execution monitoring systems.", img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=800&q=80" },
+            { type: "image", name: "Lilian Tan", role: "CHIEF COMPLIANCE OFFICER", bio: "Ensures legal and regulatory compliance across UK, US, and Asian financial jurisdictions.", img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=800&q=80" },
+            { type: "image", name: "Nalaka Gamage", role: "CHIEF FINANCIAL OFFICER", bio: "Directs global corporate finance, capital allocation, and treasury risk management.", img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80" }
         ];
 
         let currentExecIndex = 0;
@@ -553,690 +161,26 @@
             document.getElementById('exec-name').textContent = data.name;
             document.getElementById('exec-role').textContent = data.role;
             document.getElementById('exec-bio').textContent = data.bio;
-            document.getElementById('exec-img').src = data.img;
+
+            const imgEl = document.getElementById('exec-img');
+            const videoEl = document.getElementById('exec-video');
+
+            if (data.type === 'video') {
+                imgEl.classList.add('hidden');
+                videoEl.classList.remove('hidden');
+                videoEl.src = data.src;
+            } else {
+                videoEl.classList.add('hidden');
+                videoEl.pause();
+                imgEl.classList.remove('hidden');
+                imgEl.src = data.img;
+            }
+
             document.getElementById('exec-slide-counter').textContent = `${currentExecIndex + 1} / ${execs.length}`;
         }
         function nextExecSlide() { currentExecIndex = (currentExecIndex + 1) % execs.length; updateExecSlide(); }
         function prevExecSlide() { currentExecIndex = (currentExecIndex - 1 + execs.length) % execs.length; updateExecSlide(); }
 
         // Testimonials Carousel Data
-        const testimonials = [
-            { quote: '"Wintermute has been an invaluable partner for Douro Labs in contributing to the Pyth Network. Their team consistently exceeds expectations, and their deep DeFi expertise makes them our clear choice."', author: "HEAD OF BUSINESS DEVELOPMENT", org: "DOURO LABS (PYTH NETWORK)" },
-            { quote: '"Wintermute\'s commitment to uninterrupted liquidity and real-time transparency has been a game-changer for our operations. Having accurate liquidity metrics at our fingertips gives us complete confidence."', author: "RENA SHAH", org: "CONTRIBUTOR AT STACKS" },
-            { quote: '"Wintermute\'s team\'s exceptional response time and expertise set them apart. Their ability to navigate complex liquidity challenges ensures our token remains well-positioned across various venues."', author: "FABIO TOMASCHETT", org: "VP BUSINESS OPERATIONS AT SKALE FOUNDATION" }
-        ];
-        let currentTestIndex = 0;
-        function updateTestimonial() {
-            const data = testimonials[currentTestIndex];
-            document.getElementById('testimonial-quote').textContent = data.quote;
-            document.getElementById('testimonial-author').textContent = data.author;
-            document.getElementById('testimonial-org').textContent = data.org;
-            document.getElementById('testimonial-counter').textContent = `${currentTestIndex + 1} / ${testimonials.length}`;
-        }
-        function nextTestimonial() { currentTestIndex = (currentTestIndex + 1) % testimonials.length; updateTestimonial(); }
-        function prevTestimonial() { currentTestIndex = (currentTestIndex - 1 + testimonials.length) % testimonials.length; updateTestimonial(); }
-
-        // FAQ Toggle
-        function toggleFaq(id) {
-            const content = document.getElementById(`faq-ans-${id}`);
-            const icon = document.getElementById(`faq-icon-${id}`);
-            if (content.style.maxHeight) {
-                content.style.maxHeight = null;
-                icon.className = "fa-solid fa-plus text-wm-green";
-            } else {
-                content.style.maxHeight = content.scrollHeight + "px";
-                icon.className = "fa-solid fa-minus text-wm-green";
-            }
-        }
-
-        // Contact Helper
-        function openContactForm(topic) {
-            alert(`Opening contact inquiry form for: ${topic}`);
-        }
-        function openOtcModal() {
-            alert('Wintermute NODE Institutional OTC Request form initialized.');
-        }
-
-        // Background Particle Network Canvas
-        const canvas = document.getElementById('wm-canvas');
-        const ctx = canvas.getContext('2d');
-        function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
-
-        const particles = Array.from({ length: 50 }, () => ({
-            x: Math.random() * canvas.width,
-            y: Math.random() * canvas.height,
-            vx: (Math.random() - 0.5) * 0.5,
-            vy: (Math.random() - 0.5) * 0.5
-        }));
-
-        function drawCanvas() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particles.forEach((p, i) => {
-                p.x += p.vx; p.y += p.vy;
-                if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
-                if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
-                ctx.fillStyle = '#00ff66';
-                ctx.fillRect(p.x, p.y, 2, 2);
-
-                for (let j = i + 1; j < particles.length; j++) {
-                    const dx = p.x - particles[j].x;
-                    const dy = p.y - particles[j].y;
-                    const dist = Math.sqrt(dx * dx + dy * dy);
-                    if (dist < 120) {
-                        ctx.beginPath();
-                        ctx.moveTo(p.x, p.y);
-                        ctx.lineTo(particles[j].x, particles[j].y);
-                        ctx.strokeStyle = `rgba(0, 255, 102, ${1 - dist / 120})`;
-                        ctx.lineWidth = 0.4;
-                        ctx.stroke();
-                    }
-                }
-            });
-            requestAnimationFrame(drawCanvas);
-        }
-        drawCanvas();
-    </script>
-</body>
-</html>
-</span>
-                    <span class="hidden sm:inline text-brand-cyan">24/7 LOW-LATENCY ROUTING</span>
-                </div>
-                <div id="live-pairs-marquee" class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-left">
-                    <div class="p-2 rounded bg-brand-panel/50 border border-white/5">
-                        <div class="text-xs text-gray-400">BTC / USD</div>
-                        <div class="text-sm font-mono font-bold text-white flex justify-between items-center mt-1">
-                            <span>$98,420.50</span>
-                            <span class="text-emerald-400 text-xs">+2.4%</span>
-                        </div>
-                    </div>
-                    <div class="p-2 rounded bg-brand-panel/50 border border-white/5">
-                        <div class="text-xs text-gray-400">ETH / USD</div>
-                        <div class="text-sm font-mono font-bold text-white flex justify-between items-center mt-1">
-                            <span>$3,510.80</span>
-                            <span class="text-emerald-400 text-xs">+1.8%</span>
-                        </div>
-                    </div>
-                    <div class="p-2 rounded bg-brand-panel/50 border border-white/5">
-                        <div class="text-xs text-gray-400">SOL / USDC</div>
-                        <div class="text-sm font-mono font-bold text-white flex justify-between items-center mt-1">
-                            <span>$214.30</span>
-                            <span class="text-rose-400 text-xs">-0.5%</span>
-                        </div>
-                    </div>
-                    <div class="p-2 rounded bg-brand-panel/50 border border-white/5">
-                        <div class="text-xs text-gray-400">AVAX / USDT</div>
-                        <div class="text-sm font-mono font-bold text-white flex justify-between items-center mt-1">
-                            <span>$42.15</span>
-                            <span class="text-emerald-400 text-xs">+4.1%</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 2: METRICS & STATS TICKER / COUNTER DASHBOARD -->
-    <section class="relative py-16 bg-brand-panel/40 border-y border-white/10 z-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-                <div class="p-6 glass-card rounded-2xl">
-                    <div class="text-3xl sm:text-5xl font-extrabold font-mono text-gradient-cyan mb-2" data-counter="350" data-suffix="B+">$0</div>
-                    <div class="text-xs sm:text-sm font-medium text-brand-textMuted uppercase tracking-wider">Annual Trading Volume</div>
-                </div>
-                <div class="p-6 glass-card rounded-2xl">
-                    <div class="text-3xl sm:text-5xl font-extrabold font-mono text-gradient-cyan mb-2" data-counter="10000" data-suffix="+">0</div>
-                    <div class="text-xs sm:text-sm font-medium text-brand-textMuted uppercase tracking-wider">Assets Supported</div>
-                </div>
-                <div class="p-6 glass-card rounded-2xl">
-                    <div class="text-3xl sm:text-5xl font-extrabold font-mono text-gradient-cyan mb-2" data-counter="60" data-suffix="+">0</div>
-                    <div class="text-xs sm:text-sm font-medium text-brand-textMuted uppercase tracking-wider">Exchanges & Venues</div>
-                </div>
-                <div class="p-6 glass-card rounded-2xl">
-                    <div class="text-3xl sm:text-5xl font-extrabold font-mono text-gradient-cyan mb-2" data-counter="99.99" data-suffix="%">0</div>
-                    <div class="text-xs sm:text-sm font-medium text-brand-textMuted uppercase tracking-wider">Engine Uptime & Execution</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 3: CORE SERVICES / KEY CAPABILITIES -->
-    <section id="services" class="relative py-24 z-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-xs font-mono font-bold tracking-widest text-brand-cyan uppercase mb-3">Institutional Capabilities</h2>
-                <p class="text-3xl sm:text-5xl font-extrabold text-white">Core Liquidity Services</p>
-                <p class="text-brand-textMuted mt-4 max-w-2xl mx-auto text-base sm:text-lg">
-                    Comprehensive liquidity solutions across both centralized and decentralized ecosystems, backed by sophisticated pricing models.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Service 1 -->
-                <div class="glass-card p-8 rounded-2xl flex flex-col justify-between group">
-                    <div>
-                        <div class="w-14 h-14 rounded-xl bg-brand-cyan/10 border border-brand-cyan/30 flex items-center justify-center text-brand-cyan text-2xl mb-6 group-hover:scale-110 transition-transform">
-                            <i class="fa-solid fa-chart-line"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white mb-4">Algorithmic Market Making</h3>
-                        <p class="text-brand-textMuted text-sm leading-relaxed mb-6">
-                            Providing continuous, deep liquid order books on 60+ CEX and DEX trading venues globally. Minimizing spreads and optimizing slippage for traders.
-                        </p>
-                    </div>
-                    <ul class="space-y-3 text-xs font-mono text-gray-300 border-t border-white/10 pt-4">
-                        <li class="flex items-center"><i class="fa-solid fa-check text-brand-cyan mr-2"></i> Tight Spreads & Deep Books</li>
-                        <li class="flex items-center"><i class="fa-solid fa-check text-brand-cyan mr-2"></i> Multi-Chain DEX Integration</li>
-                        <li class="flex items-center"><i class="fa-solid fa-check text-brand-cyan mr-2"></i> Dynamic Automated Hedging</li>
-                    </ul>
-                </div>
-
-                <!-- Service 2 -->
-                <div class="glass-card p-8 rounded-2xl flex flex-col justify-between group relative overflow-hidden">
-                    <div class="absolute top-0 right-0 bg-brand-cyan text-black font-mono text-[10px] font-bold px-3 py-1 rounded-bl-lg uppercase">Wintermut NODE</div>
-                    <div>
-                        <div class="w-14 h-14 rounded-xl bg-brand-blue/10 border border-brand-blue/30 flex items-center justify-center text-brand-blue text-2xl mb-6 group-hover:scale-110 transition-transform">
-                            <i class="fa-solid fa-bolt"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white mb-4">Institutional OTC Trading</h3>
-                        <p class="text-brand-textMuted text-sm leading-relaxed mb-6">
-                            Bespoke block execution and bilateral liquidity quotes for funds, corporations, and high-net-worth counterparties with zero execution fees.
-                        </p>
-                    </div>
-                    <ul class="space-y-3 text-xs font-mono text-gray-300 border-t border-white/10 pt-4">
-                        <li class="flex items-center"><i class="fa-solid fa-check text-brand-cyan mr-2"></i> Instant RFQ via API & GUI</li>
-                        <li class="flex items-center"><i class="fa-solid fa-check text-brand-cyan mr-2"></i> Zero Commission / Zero Spread Markup</li>
-                        <li class="flex items-center"><i class="fa-solid fa-check text-brand-cyan mr-2"></i> Post-Trade Settlement Flexibility</li>
-                    </ul>
-                </div>
-
-                <!-- Service 3 -->
-                <div class="glass-card p-8 rounded-2xl flex flex-col justify-between group">
-                    <div>
-                        <div class="w-14 h-14 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 text-2xl mb-6 group-hover:scale-110 transition-transform">
-                            <i class="fa-solid fa-seedling"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white mb-4">Ecosystem & Ventures</h3>
-                        <p class="text-brand-textMuted text-sm leading-relaxed mb-6">
-                            Partnering with high-potential Web3 projects. Providing early liquidity bootstrapping, strategic venture capital, and market structure guidance.
-                        </p>
-                    </div>
-                    <ul class="space-y-3 text-xs font-mono text-gray-300 border-t border-white/10 pt-4">
-                        <li class="flex items-center"><i class="fa-solid fa-check text-brand-cyan mr-2"></i> Token Advisory & Launch Support</li>
-                        <li class="flex items-center"><i class="fa-solid fa-check text-brand-cyan mr-2"></i> Strategic Direct Venture Investments</li>
-                        <li class="flex items-center"><i class="fa-solid fa-check text-brand-cyan mr-2"></i> Long-term Ecosystem Alignment</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 4: TECHNOLOGY & INFRASTRUCTURE -->
-    <section id="tech" class="relative py-24 bg-brand-panel/30 z-10 border-t border-white/10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h2 class="text-xs font-mono font-bold tracking-widest text-brand-cyan uppercase mb-3">Engineered for Velocity</h2>
-                    <h3 class="text-3xl sm:text-5xl font-extrabold text-white mb-6">Ultra-Low Latency Execution Engine</h3>
-                    <p class="text-brand-textMuted text-base sm:text-lg mb-8 leading-relaxed">
-                        Our proprietary architecture processes billions in volume daily across fragmented liquidity pools with sub-millisecond precision, maintaining strict risk controls.
-                    </p>
-
-                    <div class="space-y-6">
-                        <div class="flex items-start space-x-4">
-                            <div class="w-10 h-10 rounded-lg bg-brand-card flex items-center justify-center text-brand-cyan border border-white/10 flex-shrink-0 mt-1">
-                                <i class="fa-solid fa-microchip"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-lg font-semibold text-white">Algorithmic Co-location</h4>
-                                <p class="text-sm text-brand-textMuted mt-1">Direct infrastructure deployment adjacent to core matching engines for minimal network hops.</p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start space-x-4">
-                            <div class="w-10 h-10 rounded-lg bg-brand-card flex items-center justify-center text-brand-cyan border border-white/10 flex-shrink-0 mt-1">
-                                <i class="fa-solid fa-shield-halved"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-lg font-semibold text-white">Real-time Quantitative Risk Framework</h4>
-                                <p class="text-sm text-brand-textMuted mt-1">Dynamic automated hedging and automated exposure limits protecting liquidity across all volatility cycles.</p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start space-x-4">
-                            <div class="w-10 h-10 rounded-lg bg-brand-card flex items-center justify-center text-brand-cyan border border-white/10 flex-shrink-0 mt-1">
-                                <i class="fa-solid fa-network-wired"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-lg font-semibold text-white">Cross-Chain Autonomous Routing</h4>
-                                <p class="text-sm text-brand-textMuted mt-1">Deep smart-contract integration with major EVM, SVM, and Move-based decentralized networks.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Interactive Tech Terminal Graphic -->
-                <div class="glass-panel rounded-2xl p-6 border border-white/10 shadow-2xl relative font-mono text-xs">
-                    <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-4">
-                        <div class="flex items-center space-x-2">
-                            <span class="w-3 h-3 rounded-full bg-rose-500 inline-block"></span>
-                            <span class="w-3 h-3 rounded-full bg-amber-500 inline-block"></span>
-                            <span class="w-3 h-3 rounded-full bg-emerald-500 inline-block"></span>
-                            <span class="ml-2 text-gray-400">wm-core-engine-v4.2.1</span>
-                        </div>
-                        <span class="text-brand-cyan">STATUS: ACTIVE</span>
-                    </div>
-                    
-                    <div id="terminal-logs" class="space-y-2 h-72 overflow-y-auto pr-2 text-gray-300">
-                        <p class="text-gray-500">[SYSTEM INIT] Initializing WINTERMUT High-Frequency Engine...</p>
-                        <p class="text-emerald-400">[CONNECT] Websocket stream established (Latency: 0.8ms)</p>
-                        <p class="text-gray-400">[RFQ ROUTER] Order #WM-8902 received for 250 BTC/USD</p>
-                        <p class="text-brand-cyan">[ALGO EXEC] Hedging position on Bin-Deriv & Coinbase</p>
-                        <p class="text-emerald-400">[SETTLED] Block execution finalized in 12ms</p>
-                    </div>
-
-                    <div class="mt-4 border-t border-white/10 pt-3 flex items-center justify-between text-gray-400">
-                        <span>CPU Utilization: <span class="text-brand-cyan">14.2%</span></span>
-                        <span>Active Connections: <span class="text-brand-cyan">1,248</span></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 5: INTERACTIVE OTC QUOTE PORTAL (WINTERMUT NODE) -->
-    <section id="node" class="relative py-24 z-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-xs font-mono font-bold tracking-widest text-brand-cyan uppercase mb-3">OTC Portal Simulator</h2>
-                <p class="text-3xl sm:text-5xl font-extrabold text-white">Wintermut NODE</p>
-                <p class="text-brand-textMuted mt-4 max-w-2xl mx-auto text-base sm:text-lg">
-                    Request custom institutional OTC quote simulations in real-time. Zero commissions, low slippage execution.
-                </p>
-            </div>
-
-            <div class="max-w-3xl mx-auto glass-panel rounded-3xl p-6 sm:p-10 border border-brand-cyan/20 shadow-2xl relative">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                    <!-- Trading Side Selection -->
-                    <div class="col-span-2 flex rounded-xl bg-brand-dark p-1 border border-white/10">
-                        <button id="btn-buy" class="flex-1 py-3 rounded-lg font-mono font-bold text-sm bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 transition-all">BUY</button>
-                        <button id="btn-sell" class="flex-1 py-3 rounded-lg font-mono font-bold text-sm text-gray-400 hover:text-white transition-all">SELL</button>
-                    </div>
-
-                    <!-- Asset Pair Dropdown -->
-                    <div>
-                        <label class="block text-xs font-mono text-gray-400 mb-2 uppercase">Select Asset Pair</label>
-                        <select id="otc-pair" class="w-full bg-brand-card text-white border border-white/10 rounded-xl p-3.5 focus:outline-none focus:border-brand-cyan font-mono text-sm">
-                            <option value="BTC/USD" data-price="98420.50">BTC / USD</option>
-                            <option value="ETH/USDT" data-price="3510.80">ETH / USDT</option>
-                            <option value="SOL/USDC" data-price="214.30">SOL / USDC</option>
-                            <option value="AVAX/USD" data-price="42.15">AVAX / USD</option>
-                        </select>
-                    </div>
-
-                    <!-- Size / Quantity Input -->
-                    <div>
-                        <label class="block text-xs font-mono text-gray-400 mb-2 uppercase">Trade Size / Amount</label>
-                        <input id="otc-size" type="number" value="10" min="1" class="w-full bg-brand-card text-white border border-white/10 rounded-xl p-3.5 focus:outline-none focus:border-brand-cyan font-mono text-sm" placeholder="Enter size">
-                    </div>
-                </div>
-
-                <!-- Simulation Output Box -->
-                <div class="bg-brand-dark/80 rounded-2xl p-6 border border-white/10 mb-8 font-mono">
-                    <div class="flex justify-between items-center text-xs text-gray-400 mb-3">
-                        <span>ESTIMATED INSTITUTIONAL QUOTE</span>
-                        <span class="text-brand-cyan flex items-center"><i class="fa-solid fa-arrows-rotate animate-spin mr-1"></i> LIVE STREAM</span>
-                    </div>
-
-                    <div class="flex justify-between items-baseline mb-2">
-                        <span class="text-gray-400 text-sm">Price per Token:</span>
-                        <span id="quote-price" class="text-xl text-white font-bold">$98,420.50</span>
-                    </div>
-
-                    <div class="flex justify-between items-baseline mb-2">
-                        <span class="text-gray-400 text-sm">Total Settlement Value:</span>
-                        <span id="quote-total" class="text-2xl text-brand-cyan font-extrabold">$984,205.00</span>
-                    </div>
-
-                    <div class="flex justify-between items-center text-xs text-emerald-400 pt-3 border-t border-white/10 mt-3">
-                        <span>Execution Fee: $0.00 (Zero Fee)</span>
-                        <span>Est. Settlement Time: Instant</span>
-                    </div>
-                </div>
-
-                <!-- Request Quote Button -->
-                <button id="btn-request-quote" class="w-full py-4 rounded-xl font-bold bg-gradient-to-r from-brand-cyan to-brand-blue text-black hover:opacity-90 transition-all shadow-lg hover:shadow-brand-cyan/20 flex items-center justify-center space-x-2">
-                    <i class="fa-solid fa-paper-plane"></i>
-                    <span>Execute Simulated RFQ</span>
-                </button>
-
-                <!-- Status Feedback -->
-                <div id="rfq-feedback" class="hidden mt-4 text-center text-xs font-mono text-emerald-400 bg-emerald-500/10 py-3 rounded-lg border border-emerald-500/20">
-                    <i class="fa-solid fa-circle-check mr-1"></i> Simulated quote order #WM-NODE-<span id="quote-id">88392</span> executed successfully!
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 6: ABOUT / GLOBAL PRESENCE -->
-    <section id="about" class="relative py-24 bg-brand-panel/30 border-t border-white/10 z-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-xs font-mono font-bold tracking-widest text-brand-cyan uppercase mb-3">Global Operations</h2>
-                <p class="text-3xl sm:text-5xl font-extrabold text-white">Worldwide Presence</p>
-                <p class="text-brand-textMuted mt-4 max-w-2xl mx-auto text-base sm:text-lg">
-                    Operating 24/7 across major global financial hubs to ensure seamless market liquidity round the clock.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="glass-card p-8 rounded-2xl text-center">
-                    <div class="w-12 h-12 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 flex items-center justify-center text-brand-cyan text-xl mx-auto mb-4">
-                        <i class="fa-solid fa-building-columns"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2">London</h3>
-                    <p class="text-xs font-mono text-brand-cyan mb-3">EUROPEAN HEADQUARTERS</p>
-                    <p class="text-brand-textMuted text-sm">Algorithmic trading strategy, legal operations, and quantitative development.</p>
-                </div>
-
-                <div class="glass-card p-8 rounded-2xl text-center">
-                    <div class="w-12 h-12 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 flex items-center justify-center text-brand-cyan text-xl mx-auto mb-4">
-                        <i class="fa-solid fa-globe"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2">Singapore</h3>
-                    <p class="text-xs font-mono text-brand-cyan mb-3">APAC REGIONAL HUB</p>
-                    <p class="text-brand-textMuted text-sm">Direct exchange connectivity, OTC trading desks, and Asia-Pacific coverage.</p>
-                </div>
-
-                <div class="glass-card p-8 rounded-2xl text-center">
-                    <div class="w-12 h-12 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 flex items-center justify-center text-brand-cyan text-xl mx-auto mb-4">
-                        <i class="fa-solid fa-city"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2">New York</h3>
-                    <p class="text-xs font-mono text-brand-cyan mb-3">AMERICAS INSTITUTIONAL DESK</p>
-                    <p class="text-brand-textMuted text-sm">Institutional partner relationships, venture support, and business development.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 7: CONTACT / INSTITUTIONAL INQUIRIES -->
-    <section id="contact" class="relative py-24 z-10">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="glass-panel p-8 sm:p-12 rounded-3xl border border-white/10 text-center">
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-4">Partner with WINTERMUT</h2>
-                <p class="text-brand-textMuted mb-8 max-w-xl mx-auto">
-                    Are you an exchange, token issuer, or institutional investor seeking high-grade digital asset liquidity? Connect with our team.
-                </p>
-
-                <form id="contact-form" class="space-y-4 max-w-xl mx-auto text-left" onsubmit="event.preventDefault(); showFormSuccess();">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <input type="text" placeholder="Your Name" required class="w-full bg-brand-card text-white border border-white/10 rounded-xl p-3.5 focus:outline-none focus:border-brand-cyan text-sm">
-                        <input type="email" placeholder="Institutional Email" required class="w-full bg-brand-card text-white border border-white/10 rounded-xl p-3.5 focus:outline-none focus:border-brand-cyan text-sm">
-                    </div>
-                    <select required class="w-full bg-brand-card text-white border border-white/10 rounded-xl p-3.5 focus:outline-none focus:border-brand-cyan text-sm">
-                        <option value="" disabled selected>Select Partnership Type</option>
-                        <option value="market-making">Exchange Market Making</option>
-                        <option value="otc">OTC Trading Desk</option>
-                        <option value="venture">Venture & Liquidity Support</option>
-                        <option value="other">Other Inquiry</option>
-                    </select>
-                    <textarea rows="4" placeholder="Tell us about your organization and liquidity requirements..." required class="w-full bg-brand-card text-white border border-white/10 rounded-xl p-3.5 focus:outline-none focus:border-brand-cyan text-sm"></textarea>
-                    
-                    <button type="submit" class="w-full py-4 rounded-xl font-bold bg-gradient-to-r from-brand-cyan to-brand-blue text-black hover:opacity-90 transition-all shadow-lg hover:shadow-brand-cyan/20">
-                        Submit Inquiry
-                    </button>
-                </form>
-
-                <div id="contact-success" class="hidden mt-6 text-emerald-400 font-mono text-sm bg-emerald-500/10 p-4 rounded-xl border border-emerald-500/20">
-                    <i class="fa-solid fa-circle-check mr-2"></i> Thank you! Your inquiry has been transmitted to our institutional desk.
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="relative py-12 bg-brand-dark border-t border-white/10 text-xs text-brand-textMuted z-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-center mb-8 gap-6">
-                <!-- Brand -->
-                <div class="flex items-center space-x-3">
-                    <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-cyan to-brand-blue p-[1px] flex items-center justify-center">
-                        <div class="w-full h-full bg-brand-dark rounded-[7px] flex items-center justify-center">
-                            <i class="fa-solid fa-cube text-brand-cyan text-sm"></i>
-                        </div>
-                    </div>
-                    <span class="text-xl font-bold font-mono text-white">WINTERMUT</span>
-                </div>
-
-                <!-- Footer Links -->
-                <div class="flex flex-wrap justify-center gap-6">
-                    <a href="#services" class="hover:text-white transition-colors">Services</a>
-                    <a href="#tech" class="hover:text-white transition-colors">Technology</a>
-                    <a href="#node" class="hover:text-white transition-colors">Wintermut NODE</a>
-                    <a href="#about" class="hover:text-white transition-colors">Global Offices</a>
-                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
-                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
-                </div>
-
-                <!-- Socials -->
-                <div class="flex space-x-4 text-base">
-                    <a href="#" class="text-gray-400 hover:text-brand-cyan transition-colors"><i class="fa-brands fa-x-twitter"></i></a>
-                    <a href="#" class="text-gray-400 hover:text-brand-cyan transition-colors"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="#" class="text-gray-400 hover:text-brand-cyan transition-colors"><i class="fa-brands fa-telegram"></i></a>
-                </div>
-            </div>
-
-            <!-- Disclaimer -->
-            <div class="border-t border-white/5 pt-8 leading-relaxed text-gray-500 text-justify">
-                <p>
-                    <strong>Institutional Legal Disclaimer:</strong> WINTERMUT operates strictly as a proprietary liquidity provider and market maker. WINTERMUT does not offer services to retail clients or individual investors. None of the information contained herein constitutes an offer, solicitation, or recommendation to buy or sell any digital asset, security, or financial instrument. Trading digital assets involves significant financial risk.
-                </p>
-                <p class="mt-4 text-center text-gray-600">
-                    &copy; <span id="year"></span> WINTERMUT Group. All rights reserved.
-                </p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- INTERACTIVE JAVASCRIPT -->
-    <script>
-        // Set dynamic current year
-        document.getElementById('year').textContent = new Date().getFullYear();
-
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Interactive Canvas Animation (High-Tech Geometric / Particle Network)
-        const canvas = document.getElementById('hero-canvas');
-        const ctx = canvas.getContext('2d');
-
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
-
-        const particles = [];
-        const particleCount = Math.min(Math.floor(window.innerWidth / 15), 80);
-
-        class Particle {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.vx = (Math.random() - 0.5) * 0.8;
-                this.vy = (Math.random() - 0.5) * 0.8;
-                this.radius = Math.random() * 2 + 1;
-            }
-
-            update() {
-                this.x += this.vx;
-                this.y += this.vy;
-
-                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-            }
-
-            draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                ctx.fillStyle = '#00f2fe';
-                ctx.shadowBlur = 10;
-                ctx.shadowColor = '#00f2fe';
-                ctx.fill();
-            }
-        }
-
-        for (let i = 0; i < particleCount; i++) {
-            particles.push(new Particle());
-        }
-
-        function animateCanvas() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            for (let i = 0; i < particles.length; i++) {
-                particles[i].update();
-                particles[i].draw();
-
-                for (let j = i + 1; j < particles.length; j++) {
-                    const dx = particles[i].x - particles[j].x;
-                    const dy = particles[i].y - particles[j].y;
-                    const dist = Math.sqrt(dx * dx + dy * dy);
-
-                    if (dist < 140) {
-                        ctx.beginPath();
-                        ctx.moveTo(particles[i].x, particles[i].y);
-                        ctx.lineTo(particles[j].x, particles[j].y);
-                        ctx.strokeStyle = `rgba(0, 242, 254, ${1 - dist / 140})`;
-                        ctx.lineWidth = 0.5;
-                        ctx.stroke();
-                    }
-                }
-            }
-            requestAnimationFrame(animateCanvas);
-        }
-        animateCanvas();
-
-        // Animated Numerical Counters
-        const counters = document.querySelectorAll('[data-counter]');
-        let animated = false;
-
-        function checkCounters() {
-            const triggerBottom = window.innerHeight * 0.9;
-
-            counters.forEach(counter => {
-                const counterTop = counter.getBoundingClientRect().top;
-                if (counterTop < triggerBottom && !animated) {
-                    const target = parseFloat(counter.getAttribute('data-counter'));
-                    const suffix = counter.getAttribute('data-suffix') || '';
-                    const isFloat = target % 1 !== 0;
-                    let count = 0;
-                    const speed = target / 50;
-
-                    const updateCount = () => {
-                        count += speed;
-                        if (count < target) {
-                            counter.innerText = (isFloat ? count.toFixed(2) : Math.ceil(count)).toLocaleString() + suffix;
-                            setTimeout(updateCount, 20);
-                        } else {
-                            counter.innerText = (isFloat ? target.toFixed(2) : target).toLocaleString() + suffix;
-                        }
-                    };
-                    updateCount();
-                }
-            });
-        }
-        window.addEventListener('scroll', checkCounters);
-        checkCounters();
-
-        // Simulated Terminal Live Logs
-        const terminalLogs = document.getElementById('terminal-logs');
-        const simulatedLogs = [
-            '<span class="text-gray-400">[RFQ ROUTER] Order #WM-9012 received for 1,500 SOL/USDC</span>',
-            '<span class="text-brand-cyan">[ALGO EXEC] Hedging position on Bybit & Uniswap V3</span>',
-            '<span class="text-emerald-400">[SETTLED] Block execution finalized in 8ms</span>',
-            '<span class="text-amber-400">[RISK CHECK] Margin health metric optimal (99.8%)</span>'
-        ];
-
-        setInterval(() => {
-            if (terminalLogs) {
-                const randomLog = simulatedLogs[Math.floor(Math.random() * simulatedLogs.length)];
-                const p = document.createElement('p');
-                p.innerHTML = randomLog;
-                terminalLogs.appendChild(p);
-                terminalLogs.scrollTop = terminalLogs.scrollHeight;
-                if (terminalLogs.children.length > 20) {
-                    terminalLogs.removeChild(terminalLogs.children[0]);
-                }
-            }
-        }, 3500);
-
-        // Wintermut NODE OTC Calculator Logic
-        const pairSelect = document.getElementById('otc-pair');
-        const sizeInput = document.getElementById('otc-size');
-        const quotePriceEl = document.getElementById('quote-price');
-        const quoteTotalEl = document.getElementById('quote-total');
-        const btnBuy = document.getElementById('btn-buy');
-        const btnSell = document.getElementById('btn-sell');
-        const btnRequest = document.getElementById('btn-request-quote');
-        const feedbackEl = document.getElementById('rfq-feedback');
-        const quoteIdEl = document.getElementById('quote-id');
-
-        let isBuy = true;
-
-        btnBuy.addEventListener('click', () => {
-            isBuy = true;
-            btnBuy.className = "flex-1 py-3 rounded-lg font-mono font-bold text-sm bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 transition-all";
-            btnSell.className = "flex-1 py-3 rounded-lg font-mono font-bold text-sm text-gray-400 hover:text-white transition-all";
-            updateQuote();
-        });
-
-        btnSell.addEventListener('click', () => {
-            isBuy = false;
-            btnSell.className = "flex-1 py-3 rounded-lg font-mono font-bold text-sm bg-rose-500/20 text-rose-400 border border-rose-500/40 transition-all";
-            btnBuy.className = "flex-1 py-3 rounded-lg font-mono font-bold text-sm text-gray-400 hover:text-white transition-all";
-            updateQuote();
-        });
-
-        function updateQuote() {
-            const selectedOption = pairSelect.options[pairSelect.selectedIndex];
-            const basePrice = parseFloat(selectedOption.getAttribute('data-price'));
-            const size = parseFloat(sizeInput.value) || 0;
-
-            // Slight dynamic spread simulation
-            const spread = isBuy ? 1.0005 : 0.9995;
-            const finalPrice = basePrice * spread;
-            const total = finalPrice * size;
-
-            quotePriceEl.textContent = '$' + finalPrice.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-            quoteTotalEl.textContent = '$' + total.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-        }
-
-        pairSelect.addEventListener('change', updateQuote);
-        sizeInput.addEventListener('input', updateQuote);
-
-        btnRequest.addEventListener('click', () => {
-            feedbackEl.classList.remove('hidden');
-            quoteIdEl.textContent = Math.floor(10000 + Math.random() * 90000);
-            setTimeout(() => {
-                feedbackEl.classList.add('hidden');
-            }, 5000);
-        });
-
-        function showFormSuccess() {
-            const contactSuccess = document.getElementById('contact-success');
-            contactSuccess.classList.remove('hidden');
-            document.getElementById('contact-form').reset();
-            setTimeout(() => {
-                contactSuccess.classList.add('hidden');
-            }, 6000);
-        }
-    </script>
-</body>
-</html>
+<!-- ... existing code ... -->
+```
